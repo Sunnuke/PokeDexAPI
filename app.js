@@ -113,7 +113,12 @@ function fetchPokeMon(id) {
         // front image
         pokeFrontImage.src = data['sprites']['front_default'] || '';
         // back image
-        pokeBackImage.src = data['sprites']['back_default'];
+        if (data['sprites']['back_default']) {
+            pokeBackImage.classList.remove('hide');
+            pokeBackImage.src = data['sprites']['back_default'];
+        } else {
+            pokeBackImage.classList.add('hide');
+        }
     });
 }
 
