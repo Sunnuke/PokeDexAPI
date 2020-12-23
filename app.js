@@ -21,6 +21,8 @@ const pokeListItems = document.querySelectorAll('.list-item');
 const dexPrev = document.querySelector('.left-button');
 // PokeDex Next List Button
 const dexNext = document.querySelector('.right-button');
+// Switch Between Normal and shiny versions
+var shinySwitch = document.querySelector('.shiny');
 
 
 // Element Types / variables
@@ -33,6 +35,9 @@ const TYPES = [
 
 var nextUrl = null;
 var prevUrl = null;
+
+var shySwitch = 0;
+var pokeCurr = null;
 
 // Functions
 function capitalize(str) {
@@ -83,7 +88,7 @@ function fetchPokeMon(id) {
         resetScreen();
         console.log(data);
 
-        mainScreen.classList
+        mainScreen.classList.remove('hide');
 
         // Type Of Pokemon (element type)
         const datatype = data['types'];
@@ -107,15 +112,28 @@ function fetchPokeMon(id) {
         // Poke Dex ID
         pokeId.textContent = '#' + data['id'].toString().padStart(3, '0');
         // Weight
-        pokeWeight.textContent = data['weight'];
+        pokeWeight.textContent = data['weight'] + " hg";
         // Height
-        pokeHeight.textContent = data['height'];
+        pokeHeight.textContent = data['height'] + " dm";
         // front image
-        pokeFrontImage.src = data['sprites']['front_default'] || '';
+        if (data['sprites']['front_default'] || data['sprites']['front_shiny']) {
+            pokeFrontImage.classList.remove('hide');
+            if (shySwitch == 0) {
+                pokeFrontImage.src = data['sprites']['front_default'];
+            } else {
+                pokeFrontImage.src = data['sprites']['front_shiny'];
+            }
+        } else {
+            pokeFrontImage.classList.add('hide');
+        }
         // back image
-        if (data['sprites']['back_default']) {
+        if (data['sprites']['back_default'] || data['sprites']['back_shiny']) {
             pokeBackImage.classList.remove('hide');
-            pokeBackImage.src = data['sprites']['back_default'];
+            if (shySwitch == 0) {
+                pokeBackImage.src = data['sprites']['back_default'];
+            } else {
+                pokeBackImage.src = data['sprites']['back_shiny'];
+            }
         } else {
             pokeBackImage.classList.add('hide');
         }
@@ -141,16 +159,33 @@ function listClick(e) {
         return;
     }
     const id = listItem.textContent.split('.')[0];
+    pokeCurr = id;
     fetchPokeMon(id);
-}
+};
+function switchShy(e) {
+    console.log(e);
+    console.log(shySwitch);
+    if (shySwitch == 0) {
+        shySwitch++;
+        shinySwitch.classList.add('grass');
+        console.log(shySwitch);
+    } else {
+        shySwitch--;
+        shinySwitch.classList.remove('grass');
+        console.log(shySwitch);
+    }
+    fetchPokeMon(pokeCurr);
+};
+console.log(shySwitch);
 
 
     // Events
     dexNext.addEventListener('click', nextClick);
     dexPrev.addEventListener('click', prevClick);
     for (const pokeListItem of pokeListItems) {
-        pokeListItem.addEventListener('click', listClick)
+        pokeListItem.addEventListener('click', listClick);
     }
+    shinySwitch.addEventListener('click', switchShy);
 
 
 

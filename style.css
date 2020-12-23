@@ -29,7 +29,7 @@
   }
   
   .left-container {
-    background: #E71D23;
+    background: radial-gradient(#ff00ff, #610099);
     height: 100%;
     width: calc(50% + 50px);
   }
@@ -84,6 +84,7 @@
   }
   
   .main-section__black {
+    border: 3px solid #00ffff;
     background: black;
     height: calc(100% - 50px);
     margin: 25px;
@@ -107,6 +108,8 @@
     color: white;
     font-size: 25px;
     font-weight: bold;
+    overflow-x: hidden;
+    height: 29px;
   }
   
   .poke-id {
@@ -224,7 +227,9 @@
     width: 100px;
   }
   
-  .buttons__button {
+  .buttons__button,
+  .a-button,
+  .b-button {
     align-items: center;
     background: black;
     border-radius: 50%;
@@ -235,13 +240,24 @@
     height: 35px;
     justify-content: center;
     width: 35px;
+    cursor: pointer;
   }
-  
-  .buttons__button:first-child {
+
+  .a-button:hover,
+  .b-button:hover {
+    background: rgb(20, 20, 20);
+  }
+
+  .a-button:active,
+  .a-button:active {
+    box-shadow: inset 0 0 2px 2px rgba(0, 0, 0, 0.5);
+  }
+
+  .a-button {
     margin-top: 5px;
   }
   
-  .buttons__button:last-child {
+  .b-button {
      margin-top: -5px;
    }
   
@@ -256,7 +272,7 @@
   }
   
   .left-container__hinge {
-    background: linear-gradient(to right, #7F100F, #E71D23, #E71D23, #7F100F);
+    background: linear-gradient(to right, #610099, #ff00ff, #ff00ff, #610099);
     height: 75px;
     width: 100%;
   }
@@ -270,19 +286,19 @@
   }
   
   .top-section__red {
-    background: #7F100F;
+    background: #ff0400;
   }
   
   .top-section__yellow {
-    background: #EDF18E;
+    background: #f6ff00;
   }
   
   .top-section__green {
-    background: #33915A;
+    background: #00f7ff;
   }
   
   .right-container {
-    background: #E71D23;
+    background: radial-gradient(#ff00ff, #610099);
     height: calc(100% - 50px);
     padding: 25px;
     width: calc(50% - 50px);
@@ -334,7 +350,8 @@
   }
   
   .left-button,
-  .right-button {
+  .right-button,
+  .shiny {
     align-items: center;
     background: #DEDEDE;
     border-radius: 3px;
@@ -350,15 +367,20 @@
   }
   
   .left-button:hover,
-  .right-button:hover {
+  .right-button:hover,
+  .shiny:hover {
     background: white;
   }
   
   .left-button:active,
-  .right-button:active {
+  .right-button:active,
+  .shiny:active {
     box-shadow: inset 0 0 2px 2px rgba(0,0,0,.3);
   }
   
+  .shiny {
+    margin-top: 50px;
+  }
   
   .hide {
     display: none;
