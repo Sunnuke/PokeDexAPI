@@ -22,7 +22,15 @@ const dexPrev = document.querySelector('.left-button');
 // PokeDex Next List Button
 const dexNext = document.querySelector('.right-button');
 // Switch Between Normal and shiny versions
-var shinySwitch = document.querySelector('.shiny');
+const shinySwitch = document.querySelector('.shiny');
+
+const rightPad = document.querySelector('.right');
+
+const leftPad = document.querySelector('.left');
+
+const midPad = document.querySelector('.middle');
+
+const aButton = document.querySelector('.a-button');
 
 
 // Element Types / variables
@@ -176,7 +184,23 @@ function switchShy(e) {
     }
     fetchPokeMon(pokeCurr);
 };
-console.log(shySwitch);
+function nextPoke() {
+    // console.log("right!");
+    if (pokeCurr != 10220) {
+        pokeCurr++;
+        fetchPokeMon(pokeCurr);
+    }
+}
+function prevPoke() {
+    // console.log("left!");
+    if (pokeCurr != 1) {
+        pokeCurr--;
+        fetchPokeMon(pokeCurr);
+    }
+}
+function dexOn() {
+    console.log("!");
+}
 
 
     // Events
@@ -186,6 +210,10 @@ console.log(shySwitch);
         pokeListItem.addEventListener('click', listClick);
     }
     shinySwitch.addEventListener('click', switchShy);
+    rightPad.addEventListener('click', nextPoke);
+    leftPad.addEventListener('click', prevPoke);
+    // midPad.addEventListener('click', shySwitch);
+    aButton.addEventListener('click', dexOn);
 
 
 

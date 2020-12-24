@@ -8,6 +8,9 @@
     display: flex;
     font-family: sans-serif;
     justify-content: center;
+    background-image: url('synthwaveroll.gif');
+    background-repeat: no-repeat;
+    background-size: cover;
   }
   
   .pokedex {
@@ -29,7 +32,7 @@
   }
   
   .left-container {
-    background: radial-gradient(#ff00ff, #610099);
+    background: radial-gradient(#ff00ff, #26003b);
     height: 100%;
     width: calc(50% + 50px);
   }
@@ -42,7 +45,7 @@
   }
   
   .top-section__blue {
-    background: radial-gradient(farthest-corner at 10px 10px, white, #369CD4, #369CD4);
+    background: radial-gradient(farthest-corner at 10px 10px, #ffa8f3, #00ffff, #00ffffc0);
     border-radius: 50%;
     border: 2px solid white;
     box-shadow: 0 0 2px 2px rgba(0,0,0,.5);
@@ -178,8 +181,17 @@
     box-shadow: 0 0 2px 2px rgba(0,0,0, .3);
     height: 25px;
     width: 25px;
+    cursor: pointer;
   }
-  
+
+  .d-pad__cell:hover {
+    background: rgb(31, 31, 31);
+  }
+
+  .d-pad__cell:active {
+    box-shadow: inset 0 0 2px 2px rgba(0,0,0,.3);
+  }
+
   .d-pad__cell.top {
     border-left: 1px solid dimgrey;
     border-radius: 5px 5px 0 0;
@@ -272,7 +284,7 @@
   }
   
   .left-container__hinge {
-    background: linear-gradient(to right, #610099, #ff00ff, #ff00ff, #610099);
+    background: linear-gradient(to right, #26003b, #ff00ffc0, #ff00ffc4, #610099);
     height: 75px;
     width: 100%;
   }
@@ -298,7 +310,7 @@
   }
   
   .right-container {
-    background: radial-gradient(#ff00ff, #610099);
+    background: radial-gradient(#ff00ff, #26003b);
     height: calc(100% - 50px);
     padding: 25px;
     width: calc(50% - 50px);
