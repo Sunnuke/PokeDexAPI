@@ -129,7 +129,11 @@ function fetchPokeMon(id) {
             if (shySwitch == 0) {
                 pokeFrontImage.src = data['sprites']['front_default'];
             } else {
-                pokeFrontImage.src = data['sprites']['front_shiny'];
+                if (data['sprites']['front_shiny']) {
+                    pokeFrontImage.src = data['sprites']['front_shiny'];
+                } else {
+                    pokeBackImage.classList.add('hide');
+                }
             }
         } else {
             pokeFrontImage.classList.add('hide');
@@ -140,7 +144,11 @@ function fetchPokeMon(id) {
             if (shySwitch == 0) {
                 pokeBackImage.src = data['sprites']['back_default'];
             } else {
-                pokeBackImage.src = data['sprites']['back_shiny'];
+                if (data['sprites']['back_shiny']) {
+                    pokeBackImage.src = data['sprites']['back_shiny'];
+                } else {
+                    pokeBackImage.classList.add('hide');
+                }
             }
         } else {
             pokeBackImage.classList.add('hide');
