@@ -6,3 +6,6 @@ POKEDEX (OFF); LOL SYNTHWAVE THEME:
 
 POKEDEX (ON):
 <img src="/img/poke.JPG">
+
+POKEDEX DEMO:
+<img src="/img/Pokedex.gif">
